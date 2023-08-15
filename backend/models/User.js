@@ -25,6 +25,10 @@ const User = mongoose.model(
         seller: {
             type: Boolean,
             required: true
+        },
+        shopping: {
+            type: Array,
+            required: true,
         }
 
     }, { timestamps: true }),

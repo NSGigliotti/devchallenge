@@ -14,8 +14,6 @@ const Item = mongoose.model(
         },
         price: {
             type: Number,
-            get: v => (v / 100).toFixed(2),
-            set: v => v * 100,
             required: true,
         },
         images: {
