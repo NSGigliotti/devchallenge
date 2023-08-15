@@ -23,6 +23,7 @@ module.exports = class UserController {
             res.status(422).json({ message: 'O e-mail e obrigatorio' })
             return
         }
+
         if (!validarEmail(email)) {
             res.status(422).json({ message: 'Email invalido' })
             return
@@ -73,7 +74,8 @@ module.exports = class UserController {
             email: email,
             phone: phone,
             password: passwordHash,
-            seller: seller
+            seller: seller,
+            shopping: []
         })
 
 
@@ -144,6 +146,7 @@ module.exports = class UserController {
 
         const id = req.params.id
 
+
         //? check if user exist
         const token = getToken(req)
         const user = await getUserbyToken(token)
@@ -165,6 +168,11 @@ module.exports = class UserController {
         }
 
         user.name = name
+
+        if (!validarEmail(email)) {
+            res.status(422).json({ message: 'Email invalido' })
+            return
+        }
 
         if (!email) {
             res.status(422).json({ message: 'O e-mail e obrigatorio' })
