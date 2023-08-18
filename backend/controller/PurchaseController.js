@@ -25,7 +25,6 @@ module.exports = class PurchaseController {
 
         const item = await Item.findOne({ _id: idItem }).sort('-creatdAt')
 
-
         if (!user) {
             res.status(422).json({ message: "usuario invalido" })
             return
