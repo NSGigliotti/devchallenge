@@ -17,6 +17,8 @@ module.exports = class UserController {
 
         const { name, email, phone, password, confirmpassoword, seller = false } = req.body
 
+        const image = ""
+
         //? validations
 
         if (!email) {
@@ -74,6 +76,7 @@ module.exports = class UserController {
             email: email,
             phone: phone,
             password: passwordHash,
+            image: image,
             seller: seller,
             shopping: []
         })
